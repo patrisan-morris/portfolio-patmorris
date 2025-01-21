@@ -1,0 +1,64 @@
+---
+import Logo from '@assets/logo.astro';
+import SelectLanguage from '@components/SelectLanguage.astro';
+import ThemeToggle from '@components/ThemeToggle.astro';
+
+const {t} = Astro.props;
+
+const MENU = [
+	{label: t.skills, href: '#skills'},
+	{label: t.projects, href: '#projects'},
+	{label: t.contact, href: '#contact'}
+];
+
+---
+
+<header class="mx-auto top-0 left-0 right-0 fixed z-50 p-3 bg-white/80 dark:bg-gray-800/90">
+	<div class="flex justify-between items-center max-w-7xl mx-auto">
+		<div class="flex w-2/6 justify-start items-center gap-2">		
+			<a href="#alterhero" class="flex justify-center items-center gap-2 stroke-primary fill-primary text-primary hover:stroke-accent hover:fill-accent hover:text-accent dark:stroke-accent dark:fill-accent dark:text-accent dark:hover:stroke-primary dark:hover:fill-primary dark:hover:text-primary">
+				<Logo id="logo" class="h-12 w-auto"/>
+				<span class="uppercase font-semibold text-3xl tracking-widest">PMA Portfolio</span>
+			</a>
+		</div>	
+		<nav class="w-3/6 uppercase text-md p-3">
+			<ul class="flex items-center justify-end gap-4">
+				{ 
+					MENU.map((menu) => (
+					<li class="flex justify-center w-1/6 text-center hover:text-primary dark:hover:text-accent hover:font-bold ">
+						<a href={menu.href}>{menu.label}</a>
+					</li>
+					))
+				}
+			</ul>
+		</nav>
+		<div class="flex w-1/6 items-center justify-end gap-2">
+			<ul class="flex items-center justify-center gap-4">			
+				
+				<li class="flex items-center justify-center">
+					<ThemeToggle />
+				</li>
+				<li class="flex items-center justify-center relative">
+					<SelectLanguage />
+				</li>		
+			</ul> 			
+		</div>
+	</div>
+</header>
+<script is:inline>
+
+	let logo = document.getElementById("logo");
+	let strongs = document.querySelectorAll("#logoname strong");
+	logo.addEventListener("mouseenter", (e) => {
+		strongs.forEach((strong) => {
+			strong.classList.add("text-primary");		
+		});	
+	});
+	logo.addEventListener("mouseleave", (e) => {
+		strongs.forEach((strong) => {
+			strong.classList.remove("text-primary");
+		});	
+	});
+	
+
+</script>
