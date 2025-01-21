@@ -8,15 +8,15 @@ const LANGS = [
 ];
 ---
 
-<button id="button-languages" class="text-gray-800 flex items-center justify-center gap-1 hover:bg-primary hover:border-primary z-20 px-4 py-1 rounded-full hover:scale-105"> 
+<button id="button-languages" class="text-gray-800 flex items-center justify-center gap-1 hover:bg-primary hover:border-primary z-20 px-4 py-1 rounded-full"> 
     <World class="fill-gray-800 size-6"/>
     <span class="uppercase font-medium w-[24px]">{currentLocale}</span>
 </button>
-<div id="dropdown-languages" class="hidden justify-end w-full items-center absolute left-10 z-10 border rounded-full border-accent text-center duration-300">
+<div id="dropdown-languages" class="hidden justify-end w-full items-center absolute left-10 z-10 border rounded-full border-primary text-center duration-300">
     <ul class="flex flex-row justify-end items-center gap-2 p-1">
         {
             LANGS.filter(lang => lang.value.toLowerCase() !== currentLocale).map( lang => (
-                <li class="lang-option hover:text-accent hover:font-semibold cursor-pointer px-2" value={lang.value}>
+                <li class="lang-option hover:text-primary hover:font-semibold cursor-pointer px-2" value={lang.value}>
                     {lang.short_label}
                 </li>
             ))
@@ -59,11 +59,10 @@ const LANGS = [
         e.stopPropagation();
         const isOpened = dropdown.classList.contains('open');
         dropdown.classList.toggle('open', !isOpened);
-        console.log(isOpened);
         if(isOpened) {
-            button.classList.remove("bg-accent", "border-accent");
+            button.classList.remove("bg-primary", "border-primary");
         } else {
-            button.classList.add("bg-accent", "border-accent");
+            button.classList.add("bg-primary", "border", "border-primary");
         }
     }); 
 

@@ -15,6 +15,9 @@ export default {
 			},
 			backgroundImage: {
 				'pma-dev': "url('/pma-dev.png')",
+				'pma-dancer': "url('/pma-dancer.png')",
+				'pma-gamer': "url('/pma-gamer.png')",
+				'pma-traveler': "url('/pma-traveler.png')",
 			}
 		},
 	},

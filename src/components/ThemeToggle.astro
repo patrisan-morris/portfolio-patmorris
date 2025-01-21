@@ -10,18 +10,10 @@ const t = Astro.props;
         <label id="theme-toggle-label" for="chk" class="flex justify-center items-center cursor-pointer h-[25px] rounded-[50px] relative">
             <span class="sr-only">{t.theme_sr_only}</span>
             <SunIcon id="light" class="size-6 dark:hidden"/>
-            <MoonIcon id="dark" class="size-6 hidden dark:block"/>
-            <!--<div id="theme-toggle-ball" class="w-[25px] h-[25px] rounded-full absolute left-[2.5px] z-10 transition-transform duration-[0.3ms] bg-primary"></div>-->
+            <MoonIcon id="dark" class="size-6 hidden dark:block dark:text-gray-800"/>
         </label>
     </div>
 </div>
-
-<style>
-    /*#chk:checked~#theme-toggle-label #theme-toggle-ball {
-        transform: translateX(25px);
-    }*/
-
-</style>
 
 <script is:inline>
     const matchMedia = window.matchMedia('(prefers-color-scheme: light)');
