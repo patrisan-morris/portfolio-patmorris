@@ -1,0 +1,78 @@
+---
+import WorkItem from "@components/elements/WorkItem.astro";
+const {t} = Astro.props;
+
+const EXPERIENCES = [
+    {
+        name: 'ugr',
+        date: t.works.dateUgr,
+        time: t.works.timeUgr, 
+        company:t.works.companyUgr, 
+        job: t.works.jobUgr, 
+        description: [ t.works.descriptionUgr1, t.works.descriptionUgr2, t.works.descriptionUgr3, t.works.descriptionUgr4 ], 
+        skills: ['kubernetes', 'docker', 'argocd', 'traefik', 'helm', 'confluence' , 'html', 'css', 'php', 'moodle', 'js', 'git', 'github']
+    },    
+    {
+        name: 'ssi',
+        date: t.works.dateSsi, 
+        time: t.works.timeSsi,
+        company:t.works.companySsi, 
+        job: t.works.jobSsi, 
+        description: [t.works.descriptionSsi1, t.works.descriptionSsi2, t.works.descriptionSsi3], 
+        skills: ['php', 'laravel', 'html', 'css', 'bootstrap', 'tailwindcss', 'js', 'vue', 'node', 'mysql', 'oracle', 'git', 'github',  'photoshop', 'indesign', 'vmware', 'aveva']
+    },
+    {
+        name: 'vocces',
+        date: t.works.dateVocces,
+        time: t.works.timeVocces, 
+        company:t.works.companyVocces, 
+        job: t.works.jobVocces, 
+        description: [t.works.descriptionVocces1, t.works.descriptionVocces2], 
+        skills: ['php', 'codeigniter', 'html', 'css', 'bootstrap', 'js', 'jquery', 'mysql', 'oracle', 'git', 'github', 'aws']
+    }, 
+    {
+        name: 'aboundfire',
+        date: t.works.dateABoundFire, 
+        time: t.works.timeABoundFire,
+        company:t.works.companyABoundFire, 
+        job: t.works.jobABoundFire, 
+        description: [t.works.descriptionABoundFire], 
+        skills: ['unity', 'photoshop']
+    },   
+    {
+        name: 'si2',
+        date: t.works.dateSi2, 
+        time: t.works.timeSi2,
+        company:t.works.companySi2, 
+        job: t.works.jobSi2, 
+        description: [t.works.descriptionSi2], 
+        skills: ['php', 'wordpress', 'html', 'css', 'js', 'jquery', 'mysql']
+    },
+];
+
+---
+<section id="works-section" class="max-w-7xl mx-auto pb-12 flex flex-col justify-center items-center dark:bg-gray-800 -top-20 relative">
+    <a id="works" class="absolute -top-32"></a>
+    <header class="flex flex-col items-center justify-center w-full">
+        <h1 class ="font-extrabold text-5xl cursor-default py-2">{t.works.title}</h1>
+		<h2 class ="text-gray-500 leading-8 tracking-wide font-light text-primary text-2xl mt-6 uppercase">
+            <em>{t.works.description}</em>
+        </h2>	
+    </header>
+    <ol id="work-list" class="flex flex-col justify-center items-center mt-10 max-w-7xl w-[70%]">                  
+        {EXPERIENCES.map(experience => (
+            <WorkItem experience={experience} t={t}/>
+        ))}
+    </ol>
+</section>
+
+<style is:inline>
+    #work-list li:last-child .work-border{
+        /*border:none;*/
+        padding-bottom: 0px;
+    }
+
+    #work-list li:last-child .work-border svg{
+        left: -22px;
+    }
+</style>

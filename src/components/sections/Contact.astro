@@ -1,0 +1,40 @@
+---
+const {t} = Astro.props;
+---
+
+<section id="contact-section" class="footer-wallpaper flex flex-row justify-start items-center dark:bg-gray-800 relative bg-pma-dev fondo min-h-6xl bg-white/95 bg-blend-overlay dark:bg-blend-multiply bg-contain bg-repeat bg-center">	
+    <a id="contact" class="absolute -top-20"></a>
+	<div class="w-7xl mx-auto pt-12 pb-20 flex flex-row justify-between items-center gap-20">			
+		<div class="basis-1/2">
+			<header class="flex flex-col items-start justify-center w-full">
+				<h1 class ="font-extrabold text-5xl cursor-default py-2">{t.contact.title}</h1>
+				<h2 class ="text-gray-500 leading-8 tracking-wide font-light text-lg my-4">{t.contact.description}</h2>	
+			</header>
+		</div>
+		<div class="basis-1/2">
+			<form action="#" class="space-y-8 w-full">
+				<div>
+					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{t.globals.email}</label>
+					<input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light" placeholder={t.globals.emailPlaceholder} required>
+				</div>
+				<div>
+					<label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{t.globals.subject}</label>
+					<input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary dark:shadow-sm-light" placeholder={t.globals.subjectPlaceholder} required>
+				</div>
+				<div class="sm:col-span-2">
+					<label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">{t.globals.message}</label>
+					<textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary" placeholder={t.globals.messagePlaceholder}></textarea>
+				</div>
+				<div class="flex justify-end">
+					<button type="submit" class="py-3 px-5 text-md font-extrabold tracking-widest text-center rounded-lg border border-primary bg-gray-50 hover:text-primary hover:scale-105 transition">{t.globals.sendEmail}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+<style is:inline>
+	.footer-wallpaper{
+    	mask-image: linear-gradient(transparent, #fff 10%);
+	}
+</style>

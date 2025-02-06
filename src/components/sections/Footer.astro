@@ -1,15 +1,15 @@
 ---
+import HeartIcon from "@components/icons/Heart.astro";
 const {t} = Astro.props;
+const year = new Date();
 ---
 
-<section id="footer" class="min-h-6xl dark:bg-gray-800 bg-pma-programmer bg-white/95 bg-blend-overlay bg-cover bg-no-repeat bg-left-bottom">
-	<div class="max-w-7xl mx-auto flex justify-end items-center">		
-		<div class="flex justify-between items-center my-32 w-full gap-10">	
-			<div class="flex flex-col justify-start items-start cursor-default">
-				<div class="flex flex-col justify-center items-end">
-					<h1 id="name" class="text-6xl font-bold border-b-4 border-gray-600 dark:border-white py-2">Footer</h1>
-				</div>
-			</div>
-        </div>
+<section id="footer" class="min-h-6xl dark:bg-gray-800 bg-pma-programmer bg-gray-800 bg-blend-overlay bg-cover bg-no-repeat bg-left-bottom">
+	<div class="max-w-7xl mx-auto flex justify-center items-center text-white gap-2 py-6 text-md tracking-widest">
+        <time>{year.getFullYear()}</time>
+        <span>@</span>
+        <span>{t.globals.developedWith}</span>
+        <HeartIcon class="fill-white"/> 
+        <span>{t.globals.developedBy}</span>
 	</div>
 </section>

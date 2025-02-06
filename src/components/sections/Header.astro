@@ -1,40 +1,40 @@
 ---
 import Logo from '@assets/logo.astro';
-import SelectLanguage from '@components/SelectLanguage.astro';
-import ThemeToggle from '@components/ThemeToggle.astro';
+import SelectLanguage from '@components/elements/SelectLanguage.astro';
+import ThemeToggle from '@components/elements/ThemeToggle.astro';
 
 const {t} = Astro.props;
 
 const MENU = [
-	{label: t.skills, href: '#skills'},
-	{label: t.projects, href: '#projects'},
-	{label: t.contact, href: '#contact'}
+	{name:'works',label: t.globals.navWorks , href: '#works', active:true},
+	{name:'projects',label: t.globals.navProjects, href: '#projects', active:true},
+	{name:'skills',label: t.globals.navSkills, href: '#skills', active:true},
+	{name:'certifications',label: t.globals.navCertifications, href: '#certifications', active:false},
+	{name:'contact',label: t.globals.navContact, href: '#contact', active:true}
 ];
 
 ---
 
-<header class="mx-auto top-0 left-0 right-0 fixed z-50 p-3 bg-white/80 dark:bg-gray-800/90">
+<header id="header" class="max-w-7xl mx-auto top-3 right-0 left-0 relative z-50">
 	<div class="flex justify-between items-center max-w-7xl mx-auto">
-		<div class="flex w-2/6 justify-start items-center gap-2">		
-			<a href="#alterhero" class="flex justify-center items-center gap-2 stroke-primary fill-primary text-primary hover:stroke-accent hover:fill-accent hover:text-accent dark:stroke-accent dark:fill-accent dark:text-accent dark:hover:stroke-primary dark:hover:fill-primary dark:hover:text-primary">
+		<div class="flex w-1/6 justify-start items-center gap-2">		
+			<a href="#alterhero" class="p-2 flex justify-center items-center gap-2 stroke-primary fill-primary text-primary hover:stroke-accent hover:fill-accent hover:text-accent dark:stroke-accent dark:fill-accent dark:text-accent dark:hover:stroke-primary dark:hover:fill-primary dark:hover:text-primary">
 				<Logo id="logo" class="h-12 w-auto"/>
-				<span class="uppercase font-semibold text-3xl tracking-widest">PMA Portfolio</span>
 			</a>
 		</div>	
-		<nav class="w-3/6 uppercase text-md p-3">
+		<nav class="w-3/6 uppercase text-md p-3 rounded-full mx-auto">
 			<ul class="flex items-center justify-end gap-4">
 				{ 
-					MENU.map((menu) => (
-					<li class="flex justify-center w-1/6 text-center hover:text-primary dark:hover:text-accent hover:font-bold ">
-						<a href={menu.href}>{menu.label}</a>
-					</li>
+					MENU.filter(menu => menu.active).map((menu) => (
+						<li class="flex justify-center w-1/6 text-center hover:text-primary dark:hover:text-accent hover:font-bold ">
+							<a href={menu.href} aria-label={menu.name +'-section'}>{menu.label}</a>
+						</li>
 					))
 				}
 			</ul>
 		</nav>
-		<div class="flex w-1/6 items-center justify-end gap-2">
-			<ul class="flex items-center justify-center gap-4">			
-				
+		<div class="flex w-2/6 items-center justify-end gap-2">
+			<ul class="flex items-center justify-center gap-4">
 				<li class="flex items-center justify-center">
 					<ThemeToggle />
 				</li>
@@ -45,20 +45,78 @@ const MENU = [
 		</div>
 	</div>
 </header>
+<style>
+	#header{
+		animation: nav-shadown 5s linear both;
+		animation-timeline: scroll();
+		animation-range: 0 5px;
+	}
+  
+	#header{
+	  	@apply rounded-full;
+	}
+  
+	@keyframes nav-shadown {
+		to {
+			@apply fixed shadow-lg ring-1 backdrop-blur ring-white/80 bg-white;
+		}
+	}
+
+	#logo{
+		animation: logo-resize 5s linear both;
+		animation-timeline: scroll();
+		animation-range: 0 5px;
+	}
+
+	@keyframes logo-resize {
+		0% {
+			@apply h-12;
+		}
+		to {
+			@apply h-6 pl-2; 
+		}
+	}
+
+</style>
 <script is:inline>
+	document.addEventListener("astro:page-load", () => {
+		
+		const sections = document.querySelectorAll("section");
+		const navItems = document.querySelectorAll("header nav a");
 
-	let logo = document.getElementById("logo");
-	let strongs = document.querySelectorAll("#logoname strong");
-	logo.addEventListener("mouseenter", (e) => {
-		strongs.forEach((strong) => {
-			strong.classList.add("text-primary");		
-		});	
-	});
-	logo.addEventListener("mouseleave", (e) => {
-		strongs.forEach((strong) => {
-			strong.classList.remove("text-primary");
-		});	
-	});
-	
+		const callback = (entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					navItems.forEach((item) => {
+						if (item.getAttribute("aria-label") == entry.target.id) {
+							item.classList.add("text-primary");
+						} else {
+							item.classList.remove("text-primary");
+						}
+					})
+				}
+			});
+		}
 
+		const observer = new IntersectionObserver(callback, {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.3,
+		})
+
+		sections.forEach((section) => {
+			observer.observe(section);
+		})
+
+		// Cleanup function
+		document.onvisibilitychange = () => {
+			if (document.visibilityState === "hidden") {
+				observer.disconnect();
+			} else {
+				sections.forEach((section) => {
+					observer.observe(section);
+				})
+			}
+		}
+  	})
 </script>

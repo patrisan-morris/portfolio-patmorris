@@ -1,8 +1,8 @@
 ---
-import AlterHero from '@components/sections/AlterHero.astro';
+import Hero from '@components/sections/Hero.astro';
 import Certifications from '@components/sections/Certifications.astro';
-import ContactMe from '@components/sections/ContactMe.astro';
-import PersonalProjects from '@components/sections/PersonalProjects.astro';
+import Contact from '@components/sections/Contact.astro';
+import Projects from '@components/sections/Projects.astro';
 import Skills from '@components/sections/Skills.astro';
 import Works from '@components/sections/Works.astro';
 
@@ -18,11 +18,10 @@ const t = await loadLocale(currentLocale);
 
 <Layout currentLocale={currentLocale} t={t}> 
 	<main>
-		<AlterHero t={t}/>
-		<Skills t={t}/>
-		<PersonalProjects t={t}/>
+		<Hero t={t}/>
 		<Works t={t}/>
-		<Certifications	t={t}/>
-		<ContactMe t={t}/>
+		<Projects t={t}/>
+		<Skills t={t}/>
+		<Contact t={t}/>
 	</main>
 </Layout>

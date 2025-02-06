@@ -1,10 +1,10 @@
 ---
 import Header from '@components/sections/Header.astro';
 import Footer from '@components/sections/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
 import '@styles/globals.css';
 const { currentLocale } = Astro.props;
 const { t } = Astro.props;
-
 ---
 
 <!doctype html>
@@ -16,12 +16,13 @@ const { t } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<title>{t.title}</title>
+		<title>{t.globals.title}</title>
+		<ClientRouter />
 	</head>
-	<body class="font-merriweather text-gray-900 dark:text-white">
-		<Header currentLocale="{currentLocale}" t={t}/>
+	<body class="font-merriweather text-gray-900 dark:text-white dark:bg-gray-800">
+		<Header currentLocale={currentLocale} t={t}/>
 		<slot />
-		<Footer t={t}/>		
+		<Footer t={t}/>	
 	</body>
 </html>
 

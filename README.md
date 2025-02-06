@@ -78,3 +78,9 @@ Feel free to reach out if you have any questions, job opportunities, or just wan
 ---
 
 Thank you for visiting my portfolio! I look forward to hearing from you.
+
+
+
+/*Enlaces*/
+
+<a target="_blank" href="https://icons8.comundefined">3ds Max</a> icono de <a target="_blank" href="https://icons8.com">Icons8</a>

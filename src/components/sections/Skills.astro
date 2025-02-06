@@ -1,15 +1,42 @@
 ---
+import SkillItem from '@components/elements/SkillItem.astro';
+
 const {t} = Astro.props;
+const skillsFrontend = ["html",	"css", "tailwindcss", "bootstrap", "js", "vue", "astro", "jquery"];
+const skillsBackend = ["php", "laravel", "codeigniter", "wordpress", "moodle", "node", "mysql", "oracle"];
+const skillsExtra = ["git", "github", "docker", "kubernetes", "argocd", "traefik", "helm", "confluence", "aws", "figma", "indesign", "photoshop", "studiomax", "unity"];
 ---
 
-<section id="skills" class="min-h-6xl dark:bg-gray-800 bg-gradient-to-br to-primary from-accent">
-	<div class="max-w-7xl mx-auto flex justify-end items-center">		
-		<div class="flex justify-between items-center my-32 w-full gap-10">	
-			<div class="flex flex-col justify-start items-start cursor-default">
-				<div class="flex flex-col justify-center items-end">
-					<h1 id="name" class="text-6xl font-bold border-b-4 border-gray-600 dark:border-white py-2">Skills</h1>
-				</div>
-			</div>
-        </div>
+<section id="skills-section" class="min-h-6xl max-w-7xl mx-auto py-12 flex flex-col justify-center items-center gap-6 dark:bg-gray-800 relative">	
+    <a id="skills" class="absolute -top-32"></a>
+	<header class="flex flex-col items-center justify-center w-full">
+        <h1 class ="font-extrabold text-5xl cursor-default py-2">{t.skills.title}</h1>
+		<h2 class ="text-gray-500 leading-8 tracking-wide font-light text-lg my-4">{t.skills.description}</h2>	
+    </header>
+	<div class="w-full flex flex-row justify-between items-center gap-10">
+		<article class="flex flex-col justify-start items-center gap-2 basis-1/2">
+			<h2 class="uppercase tracking-widest font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t.skills.frontend}</h2>
+			<ul class="grid grid-flow-row grid-cols-4 border w-full rounded-md border-primary bg-gray-50">
+				{skillsFrontend.map(skill => (
+					<SkillItem skill={skill} t={t} mode="vertical"/>
+				))}
+			</ul>
+		</article>
+		<article class="flex flex-col justify-center items-center gap-2 basis-1/2">
+			<h2 class="uppercase tracking-widest font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t.skills.backendBd}</h2>
+			<ul class="grid grid-flow-row grid-cols-4 border w-full rounded-md border-primary bg-gray-50">
+				{skillsBackend.map(skill => (
+					<SkillItem skill={skill} t={t} mode="vertical"/>			
+				))}
+			</ul>
+		</article>
 	</div>
+	<article class="w-full flex flex-col justify-center items-center gap-2">
+		<h2 class="uppercase tracking-widest font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t.skills.extra}</h2>
+		<ul class="grid grid-flow-row grid-cols-7 border  w-full rounded-md border-primary bg-gray-50">
+			{skillsExtra.map(skill => (
+				<SkillItem skill={skill} t={t} mode="vertical"/>		
+			))}
+		</ul>
+	</article>
 </section>

@@ -1,0 +1,40 @@
+{
+    "title": "Experiencia laboral",
+    "description": "10 años en el sector del desarrollo web",
+    
+    "dateUgr": "MAR 2023 - DIC 2024",
+    "timeUgr": "(1 año y 10 meses)",
+    "companyUgr": "Universidad de Granada",
+    "jobUgr": "Personal de apoyo técnico",
+    "descriptionUgr1": "Gestión de los proyectos UNIMEDIA, UNINMERSIVE y POA.",
+    "descriptionUgr2": "Colaboración con el lanzamiento del estudio UNIMEDIA, para la grabación autonóma de vídeos docentes. Ajustes técnicos de sistema y del programa WebClip2Go. Creación de contenido para la formación de uso del estudio.",
+    "descriptionUgr3": "Planificación y coordinación con el equipo de PsicoVR en el desarrollo de un sistema de ultrasonido (UNINMERSIVE) en realidad virtual para fines educativos.",
+    "descriptionUgr4": "Integración con el LMS de la universidad y el Portal de Objetos de Aprendizaje (POA). Configuración y mantenimiento de clúster Kubernetes. Planificación y coordinación con el equipo de MainJobs y el consorcio de universidades.",
+
+    "dateSsi": "OCT 2019 - FEB 2023",
+    "timeSsi": "(3 años y 5 meses)",
+    "companySsi":"Ssi Control S.L",
+    "jobSsi": "Desarrolladora Full Stack Web",
+    "descriptionSsi1": "Desarrollo del CRM para la gestión de cargas/facturación y la página web de Transandalus ", 
+    "descriptionSsi2": "Mantenimiento de las páginas de gestión internas de la empresa Ssi Control y TransAndalus.",
+    "descriptionSsi3": "Diseño gráfico interno de las empresas SsiControl y TransAndalus y para proyectos Aveva System Platform e Intouch.",
+
+    "dateVocces": "ENE 2017 - SEP 2019",
+    "timeVocces": "(2 años y 9 meses)",
+    "companyVocces":"Vocces Lab S.L",
+    "jobVocces": "Desarrolladora Full Stack Web",
+    "descriptionVocces1": "Responsable de la plataforma Articketing. Desarrollo de nuevas mejoras y corrección de errores en el panel web del cliente. Mejora de la web de ventas de entradas online.",
+    "descriptionVocces2": "Desarrollo de la tienda online de artículos (incluyendo el cálculo de paquetería y la notificación logística). Desarrollo del programa para la máquina de puntos de venta.",
+
+    "dateABoundFire": "OCT 2016 - DIC 2016",
+    "timeABoundFire": "(3 meses)",
+    "companyABoundFire":"A Boundfire of Souls",
+    "jobABoundFire": "Desarrolladora de videojuegos",
+    "descriptionABoundFire": "Integración del arte del juego en Unity. Realización de animaciones 2D. Diseño y creación del HUD. Creación de contenido in-game.",
+
+    "dateSi2": "FEB 2013 - SEP 2014",
+    "timeSi2": "(1 año y 8 meses)",
+    "companySi2":"SI2 S.L",
+    "jobSi2": "Desarrolladora Full Stack Web",
+    "descriptionSi2": "Desarrollo en Wordpress de sitios web personalizados para una amplia variedad de clientes."
+}

@@ -1,0 +1,44 @@
+---
+import SkillItem from '@components/elements/SkillItem.astro';
+import WorkIcon from '@components/icons/WorkIcon.astro';
+const {experience, t} = Astro.props;
+
+const justify_ul = (experience.name !== 'aboundfire')? 'justify-between': 'justify-start';
+const gap_ul = (experience.name !== 'si2')? 'gap-x-2': 'gap-x-1';
+---
+
+<li class="flex flex-row justify-center items-center w-full">    
+    
+    <div class="work-border border-l-2 border-primary pb-10 w-full">
+        <div class="relative">            
+            <WorkIcon class="absolute -left-[26px] -top-3 size-12 p-2 bg-white border-2 border-primary rounded-full cursor-pointer"/>
+        </div>
+        <header class="flex flex-row justify-between items-start pl-10 mb-2">
+            <div class="flex flex-row justify-start items-center gap-1">
+                <h1 class="font-extrabold text-2xl">{experience.company}</h1>
+                <span class="text-gray-400">-</span>
+                <h2 class="uppercase tracking-wide text-xl font-semibold text-gray-400">{experience.job}</h2>
+            </div>
+            <div class="flex flex-col justify-center items-end">
+                <time class="text-gray-400 font-light text-md">{experience.date}</time>
+                <time class="text-gray-400 uppercase font-light text-sm">{experience.time}</time>
+            </div>
+        </header> 
+        
+                
+        <article class="border border-gray-200 border-l-0 rounded-r-md py-5 px-10 bg-gray-50">
+            <ul class="pt-2 list-disc ml-5">{
+                    experience.description.map(description => (
+                        <li class="text-gray-500 leading-8 tracking-wide font-light text-md">{description}</li>
+                    ))
+                }
+            </ul>         
+                    
+            <ul class={"flex flex-row pt-4 flex-wrap " + justify_ul + " " + gap_ul}>
+                {experience.skills.map(skill => (                     
+                    <SkillItem skill={skill} t={t} mode="horizontal"/>
+                ))}
+            </ul>  
+        </article>
+    </div>
+</li>

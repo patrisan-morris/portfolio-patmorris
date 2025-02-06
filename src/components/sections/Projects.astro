@@ -1,0 +1,149 @@
+---
+import SkillItem from "@components/elements/SkillItem.astro";
+const {t} = Astro.props;
+
+const PROJECTS = [
+    {
+        title: t.projects.title1,
+        description: t.projects.description1, 
+        image: '/project-1.png', 
+        skills: ['html', 'css', 'vue', 'js', 'git', 'github']
+    }, {
+        title: t.projects.title2,
+        description: t.projects.description2, 
+        image: '/pma-dev.png', 
+        skills: ['html', 'css', 'vue', 'js', 'git', 'github']
+    }, {
+        title: t.projects.title3,
+        description: t.projects.description3, 
+        image: '/project-3.png', 
+        skills: ['html', 'css', 'php',  'js', 'git', 'github']
+    }, 
+	{
+        title: t.projects.title4,
+        description: t.projects.description4, 
+        image: '/project-4.png', 
+        skills: ['unity', 'csharp','studiomax', 'photoshop', 'git', 'github']
+    }, 
+	{
+        title: t.projects.title5,
+        description: t.projects.description5, 
+        image: '/pma-dev.png', 
+        skills: ['kubernetes', 'docker', 'argocd', 'traefik', 'helm', 'confluence']
+    }, 
+];
+---
+
+<section id="projects-section" class="min-h-6xl max-w-7xl mx-auto pb-12 flex flex-col justify-start items-center dark:bg-gray-800 relative">	
+    <a id="projects" class="absolute -top-20"></a>
+	<header class="flex flex-col items-center justify-center w-full">
+        <h1 class ="font-extrabold text-5xl cursor-default py-2">{t.projects.title}</h1>
+		<h2 class ="text-gray-500 leading-8 tracking-wide font-light text-primary text-2xl mt-6">
+			<em>"{t.projects.description}"</em>
+		</h2>	
+    </header>
+	<div class="mt-10 grid grid-flow-row gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-3">
+		<div class="relative lg:row-span-3 hover:scale-105 cursor-pointer transition">
+			<div class="relative flex h-full flex-col z-20 overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+				<div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+					<h1 class="mt-2 text-lg font-extrabold tracking-widest max-lg:text-center text-project1 uppercase">{PROJECTS[0].title}</h1>
+					<p class="mt-2 max-w-lg text-sm/6 text-gray-600 font-light max-lg:text-center">{PROJECTS[0].description}</p>					
+				</div>
+				<div class="px-8 pt-3">
+					<ul class="flex flex-row flex-wrap w-full gap-2">
+						{PROJECTS[0].skills.map(skill => (
+							<SkillItem skill={skill} t={t} mode="h-no-label"/>
+						))}
+					</ul>
+				</div>
+				<div class="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
+					<div class="absolute inset-x-10 top-5 bottom-0 overflow-hidden rounded-t-[40px] border-x-[10px] border-t-[10px] border-gray-700 bg-gray-900 shadow-2xl">
+						<img class="size-full object-cover object-top" src={PROJECTS[0].image} alt={PROJECTS[0].title}>
+					</div>
+				</div>
+			</div>
+			<div class="absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 lg:rounded-l-[2rem] bg-gray-50"></div>
+		</div>
+		<div class="relative max-lg:row-start-1 hover:scale-105 cursor-pointer transition">
+			<div class="relative flex h-full flex-col z-20 overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
+				<div class="px-8 pt-8 sm:px-10 sm:pt-10">
+					<p class="mt-2 text-lg font-extrabold tracking-widest max-lg:text-center uppercase text-project2">{PROJECTS[1].title}</p>
+					<p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center font-light">{PROJECTS[1].description}</p>
+				</div>
+					
+				<div class="px-8 pt-3">
+					<ul class="flex flex-row flex-wrap w-full gap-2">
+						{PROJECTS[1].skills.map(skill => (
+							<SkillItem skill={skill} t={t} mode="h-no-label"/>
+						))}
+					</ul>
+				</div>
+			</div>
+			<div class="absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 max-lg:rounded-t-[2rem] bg-gray-50"></div>
+		</div>
+		<div class="relative max-lg:row-start-2 lg:col-start-2 lg:row-start-2 row-span-2 hover:scale-105 cursor-pointer transition">
+			<div class="relative flex h-full flex-col z-20 overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+				<div class="px-8 pt-8 sm:px-10 sm:pt-10">
+					<p class="mt-2 text-lg font-extrabold tracking-widest max-lg:text-center uppercase text-project3">{PROJECTS[2].title}</p>
+					<p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center font-light">{PROJECTS[2].description}</p>
+				</div>
+				
+				<div class="px-8 pt-3 pb-3">
+					<ul class="flex flex-row flex-wrap w-full gap-2">
+						{PROJECTS[2].skills.map(skill => (
+							<SkillItem skill={skill} t={t} mode="h-no-label"/>
+						))}
+					</ul>
+				</div>
+				<!-- <div class="relative w-full grow max-lg:mx-auto max-lg:max-w-sm">
+					<img class="size-full rounded-b-lg" src={PROJECTS[2].image} alt={PROJECTS[2].title}>
+				</div> -->
+				<div class="@container relative h-[8rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
+					<div class="absolute inset-x-8 top-5 bottom-10 overflow-hidden rounded-[40px] border-x-[10px] border-[10px] border-gray-700 bg-gray-900 shadow-2xl">
+						<img class="size-full object-cover object-top" src={PROJECTS[2].image} alt={PROJECTS[2].title}>
+					</div>
+				</div>
+			</div>
+			<div class="absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 bg-gray-50"></div>
+		</div>
+		<div class="relative lg:row-span-2 hover:scale-105 cursor-pointer transition">
+			<div class="relative flex h-full flex-col z-20 overflow-hidden rounded-lg">
+				<div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+					<p class="mt-2 text-lg font-extrabold tracking-widest max-lg:text-center text-project4 uppercase">{PROJECTS[3].title}</p>
+					<p class="mt-2 max-w-lg text-sm/6 text-gray-600 font-light max-lg:text-center">{PROJECTS[3].description}</p>
+				</div>	
+				
+				<div class="px-8 pt-3 pb-3">
+					<ul class="flex flex-row flex-wrap w-full gap-2">
+						{PROJECTS[3].skills.map(skill => (
+							<SkillItem skill={skill} t={t} mode="h-no-label"/>
+						))}
+					</ul>
+				</div>	
+				<div class="relative w-full grow max-lg:mx-auto max-lg:max-w-sm">
+					<div class="">
+						<img class="size-full object-cover object-top" src={PROJECTS[3].image} alt={PROJECTS[3].title}>
+					</div>
+				</div>	
+			</div>
+			<div class="absolute inset-px rounded-lg rounded-r-[2rem] ring-1 shadow-sm ring-black/5 bg-gray-50"></div>			
+		</div>
+		<div class="relative max-lg:row-start-1 hover:scale-105 cursor-pointer transition">
+			<div class="relative flex h-full flex-col z-20 overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
+				<div class="px-8 pt-8 sm:px-10 sm:pt-10">
+					<p class="mt-2 text-lg font-extrabold tracking-widest max-lg:text-center uppercase text-project5">{PROJECTS[4].title}</p>
+					<p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center font-light">{PROJECTS[4].description}</p>
+				</div>
+					
+				<div class="px-8 pt-3">
+					<ul class="flex flex-row flex-wrap w-full gap-2">
+						{PROJECTS[4].skills.map(skill => (
+							<SkillItem skill={skill} t={t} mode="h-no-label"/>
+						))}
+					</ul>
+				</div>
+			</div>
+			<div class="absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-ee-[2rem] bg-gray-50"></div>
+		</div>
+	</div>
+</section>
